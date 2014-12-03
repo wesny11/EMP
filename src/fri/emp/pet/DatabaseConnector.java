@@ -36,7 +36,7 @@ public class DatabaseConnector {
     } // end method close
 
     // inserts a new contact in the database
-    public void insertContact(String ime, String vrsta, String rojDan, double velikost, double teza, String cip, int stevilka) {
+    public void insertContact(String ime, String vrsta, String rojDan, double velikost, double teza, String cip, int stevilka, String drugo) {
         ContentValues pets = new ContentValues();
         pets.put("ime", ime);
         pets.put("vrsta", vrsta);
@@ -45,6 +45,7 @@ public class DatabaseConnector {
         pets.put("teza", teza);
         pets.put("cip", cip);
         pets.put("stevilka", stevilka);
+        pets.put("drugo", drugo);
 
         open(); // open the database
         database.insert("pets", null, pets);
@@ -52,7 +53,7 @@ public class DatabaseConnector {
     } // end method insertContact
 
     // inserts a new contact in the database
-    public void updateContact(long id, String ime, String vrsta, String rojDan, double velikost, double teza, String cip, int stevilka) {
+    public void updateContact(long id, String ime, String vrsta, String rojDan, double velikost, double teza, String cip, int stevilka, String drugo) {
         ContentValues editPet = new ContentValues();
         editPet.put("ime", ime);
         editPet.put("vrsta", vrsta);
@@ -61,6 +62,7 @@ public class DatabaseConnector {
         editPet.put("teza", teza);
         editPet.put("cip", cip);
         editPet.put("stevilka", stevilka);
+        editPet.put("drugo", drugo);
 
         open(); // open the database
         database.update("pets", editPet, "_id=" + id, null);
@@ -95,20 +97,18 @@ public class DatabaseConnector {
         @Override
         public void onCreate(SQLiteDatabase db) {
             // query to create a new table named contacts
-            String createQuery = "CREATE TABLE pets (_id integer primary key autoincrement, name TEXT, email TEXT, phone TEXT, street TEXT, city TEXT, note TEXT);";
+            //ime, String vrsta, String rojDan, double velikost, double teza, String cip, int stevilka
+            String createQuery = "CREATE TABLE pets (_id integer primary key autoincrement, ime TEXT, vrsta TEXT, rojDan TEXT, velikost TEXT, teza TEXT, cip TEXT, stevilka TEXT, drugo TEXT);";
             // initializing the database
-            String insertValues = "INSERT INTO contacts (_ID, name, email, phone, street, city, note) values (NULL, 'MOJCA', 'mojca@gmail.com', '041-444-555', 'Trzaska cesta 25', 'Ljubljana', 'To je sporocilo');";
+            //String insertValues = "INSERT INTO contacts (_ID, name, email, phone, street, city, note) values (NULL, 'MOJCA', 'mojca@gmail.com', '041-444-555', 'Trzaska cesta 25', 'Ljubljana', 'To je sporocilo');";
 
             db.execSQL(createQuery); // execute the query
-            db.execSQL(insertValues);
+            //db.execSQL(insertValues);
         } // end method onCreate
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            if (oldVersion == 2 && newVersion == 3) {
-                final String sql = "ALTER TABLE contacts ADD COLUMN note TEXT";
-                db.execSQL(sql);
-            }
+
         } // end method onUpgrade
 
     } // end class DatabaseOpenHelper

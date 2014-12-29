@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">pet</string>
+    <string name="app_name">MyPET</string>
     <string name="pets">Moji Ljubljenčki</string>
     <string name="settings">Nastavitve</string>
     <string name="about">O aplikaciji</string>

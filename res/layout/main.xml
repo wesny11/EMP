@@ -8,18 +8,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/pets"
+            style="@style/MainFont"
             android:id="@+id/pets"
             android:layout_gravity="center_horizontal"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings"
+            style="@style/MainFont"
             android:id="@+id/settings"
             android:layout_gravity="center_horizontal"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/about"
+            style="@style/MainFont"
             android:id="@+id/about"
             android:layout_gravity="center_horizontal"/>
 </LinearLayout>

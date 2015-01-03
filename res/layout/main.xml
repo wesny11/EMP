@@ -3,23 +3,25 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:id="@+id/">
+              android:id="@+id/app_name">
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/pets"
+            style="@style/MainFont"
             android:id="@+id/pets"
             android:layout_gravity="center_horizontal"/>
-    <Button
+    <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/settings"
-            android:id="@+id/settings"
+            android:src="@drawable/edit"
+            android:id="@+id/edit"
             android:layout_gravity="center_horizontal"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/about"
+            style="@style/MainFont"
             android:id="@+id/about"
             android:layout_gravity="center_horizontal"/>
 </LinearLayout>
